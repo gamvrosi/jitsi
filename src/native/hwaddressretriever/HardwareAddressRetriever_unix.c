@@ -85,7 +85,7 @@ jbyteArray getHardwareAddress(JNIEnv* env, jstring ifName)
     }
     
     close(sock);
-    addr = (const jbyte*)ifr.ifr_hwaddr.sa_data;
+    addr = (jbyte*)ifr.ifr_hwaddr.sa_data;
 
 #else /* BSD like */
 

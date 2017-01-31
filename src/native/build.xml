@@ -27,6 +27,11 @@
       <os arch="x86_64" />
     </or>
   </condition>
+  <condition property="arch" value="arm">
+    <or>
+      <os arch="arm" />
+    </or>
+  </condition>
 
   <!--
     Cross compilation. It is mainly used on Linux to cross-compile 32-bit
@@ -65,6 +70,13 @@
     <and>   
       <isset property="is.running.linux"/>
       <equals arg1="${arch}" arg2="32" />
+    </and>                                    
+  </condition>
+
+  <condition property="native_install_dir" value="${native.libs}/linux">
+    <and>   
+      <isset property="is.running.linux"/>
+      <equals arg1="${arch}" arg2="arm" />
     </and>                                    
   </condition>
 
